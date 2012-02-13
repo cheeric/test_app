@@ -1,7 +1,11 @@
 TestApp::Application.routes.draw do
-  resources :microposts
+  root :to => 'users#index'
+
+  resources :items
 
   resources :users
+
+  resources :carts
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -11,7 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120201052742) do
+ActiveRecord::Schema.define(:version => 20120213134722) do
+
+  create_table "carts", :force => true do |t|
+    t.integer  "quantity"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "items", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.decimal  "price"
+    t.integer  "cart_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "items", ["cart_id"], :name => "index_items_on_cart_id"
 
   create_table "microposts", :force => true do |t|
     t.string   "content"
@@ -23,8 +40,11 @@ ActiveRecord::Schema.define(:version => 20120201052742) do
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
+    t.integer  "cart_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "users", ["cart_id"], :name => "index_users_on_cart_id"
 
 end
