@@ -11,40 +11,40 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120213134722) do
+ActiveRecord::Schema.define(:version => 20120220041452) do
 
   create_table "carts", :force => true do |t|
-    t.integer  "quantity"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "items", :force => true do |t|
-    t.string   "name"
-    t.string   "description"
-    t.decimal  "price"
-    t.integer  "cart_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
-  add_index "items", ["cart_id"], :name => "index_items_on_cart_id"
-
-  create_table "microposts", :force => true do |t|
-    t.string   "content"
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  create_table "users", :force => true do |t|
-    t.string   "name"
-    t.string   "email"
+  add_index "carts", ["user_id"], :name => "index_carts_on_user_id"
+
+  create_table "orders", :force => true do |t|
     t.integer  "cart_id"
+    t.integer  "product_id"
+    t.integer  "quantity"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  add_index "users", ["cart_id"], :name => "index_users_on_cart_id"
+  add_index "orders", ["cart_id"], :name => "index_orders_on_cart_id"
+  add_index "orders", ["product_id"], :name => "index_orders_on_product_id"
+
+  create_table "products", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.decimal  "price"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end

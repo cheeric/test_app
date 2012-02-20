@@ -1,11 +1,13 @@
 TestApp::Application.routes.draw do
-  root :to => 'users#index'
+  resources :products
 
-  resources :items
+  resources :orders
+
+  resources :carts
 
   resources :users
 
-  resources :carts
+  root :to => '#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

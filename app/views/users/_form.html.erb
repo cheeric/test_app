@@ -1,4 +1,4 @@
-<%= form_for(@user) do |f| %>
+<%= form_for(@user, html: {class: "nice"}) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -12,18 +12,14 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'input-text' %><br />
   </div>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :cart %><br />
-    <%= f.text_field :cart %>
+    <%= f.label :email %>
+    <%= f.text_field :email, class: 'input-text' %><br />
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: 'small round button' %>
   </div>
 <% end %>

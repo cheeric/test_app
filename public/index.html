@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8" />
+
+	<!-- Set the viewport width to device width for mobile -->
+	<meta name="viewport" content="width=device-width" />
+
+	<title>Welcome</title>
+  
+	<!-- Included CSS Files -->
+	<link rel="stylesheet" href="stylesheets/foundation.css">
+	<link rel="stylesheet" href="stylesheets/app.css">
+
+	<!--[if lt IE 9]>
+		<link rel="stylesheet" href="stylesheets/ie.css">
+	<![endif]-->
+
+
+	<!-- IE Fix for HTML5 Tags -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+</head>
+<body>
+
+	<!-- container -->
+	<div class="container">
+
+		<div class="row">
+			<div class="twelve columns text-center">
+				<h2>Welcome</h2>
+				<p>This is a project in progress for CIS 196 at the University of Pennsylvania</p>
+				<hr />
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="eight columns">
+				<h3>The Image</h3>
+
+				<!-- Grid Example -->
+				<div class="row">
+					<img src="/images/end_of_world.jpg"/>
+				</div>
+			</div>
+
+			<div class="four columns">			
+				<h4>About</h4>
+				<p>This is a site in progress for CIS 196 (Ruby on Rails Web Development) at the University of Pennsylvania</p>
+
+				<p>Post a message!</p>
+
+				<form class="nice">
+					<input type="text" placeholder="Your Name" class="input-text" />
+					<input type="text" placeholder="Message to me" class="input-text" />
+				</form>
+				<a href="#" class="small round button"> Submit</a>
+				<p></p>
+				<div class="row">
+					<p></p>
+				</div>
+				<h4>Additional Links</h4>
+				<p></p>
+				<ul class="disc">
+					<li><a href="http://twitter.com/cheeric">@cheeric</a><br />My twitter profile</li>
+					<li><a href="/users">Users</a><br />Listing of Users</li>
+					<li><a href="/products">Products</a><br />Manage Products</li>
+				</ul>
+			</div>
+		</div>
+
+	</div>
+	<!-- container -->
+
+
+
+
+	<!-- Included JS Files -->
+	<script src="javascripts/jquery.min.js"></script>
+	<script src="javascripts/modernizr.foundation.js"></script>
+	<script src="javascripts/foundation.js"></script>
+	<script src="javascripts/app.js"></script>
+
+</body>
+</html>

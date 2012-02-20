@@ -1,3 +1,3 @@
 class User < ActiveRecord::Base
-  belongs_to :cart
+	has_many :carts, :dependent => :destroy
 end

@@ -1,10 +1,20 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Quantity:</b>
-  <%= @cart.quantity %>
+  <b>User:</b>
+  <%= @cart.user.name %>
+</p>
+
+<p>
+  <b>Order:</b>
+  <% @orders = Order.where(:cart_id => @cart.id) %>
+  <% @orders.each do |order| %>
+  	<tr>
+	    <td><%= order.product.name+',' %></td>
+	</tr>
+  <% end %>
 </p>
 
 
-<%= link_to 'Edit', edit_cart_path(@cart) %> |
+<%= link_to 'Add Order', new_order_path %> |
 <%= link_to 'Back', carts_path %>
