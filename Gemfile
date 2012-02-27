@@ -7,10 +7,12 @@ gem 'rails', '3.2.1'
 
 group :production do
   gem 'pg'
+  gem 'therubyracer'
 end        
 
 group :development, :test do
   gem 'sqlite3'
+  gem 'capybara_rails'
 end
 
 # Gems used only for assets and not required
