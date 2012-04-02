@@ -5,8 +5,6 @@ TestApp::Application.routes.draw do
 
   devise_for :users
 
-  
-
   resources :products
 
   resources :orders
@@ -15,7 +13,7 @@ TestApp::Application.routes.draw do
 
   resources :users
 
-  root :to => 'users#index'
+  root :to => 'static#welcome'
 
   match ':action' => 'static#:action'
 

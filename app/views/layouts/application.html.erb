@@ -9,8 +9,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div class="container">
-		<div class="row">
+	<div id="page" class="container">
+		<div id="header" class="row">
 			<div class="twelve columns">
 				<ul class="nav-bar">
 					<li>
@@ -20,7 +20,10 @@
 						<a href="products" class="main">Products</a>
 					</li>
 					<li>
-						<a href="#" class="main">About</a>
+						<a href="about" class="main">About</a>
+					</li>
+					<li>
+						<a href="#" class="main">Contact</a>
 					</li>
 					<li class="pull-right">
 						<% if user_signed_in? %>
@@ -33,7 +36,7 @@
 			</div>
 		</div>
 		
-		<div>
+		<div id="main-content">
 			<%= yield %>
 		</div>
 	</div>
