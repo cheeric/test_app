@@ -1,4 +1,12 @@
 TestApp::Application.routes.draw do
+  
+
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+
+  devise_for :users
+
+  
+
   resources :products
 
   resources :orders
@@ -7,7 +15,9 @@ TestApp::Application.routes.draw do
 
   resources :users
 
-  #root :to => '#index'
+  root :to => 'users#index'
+
+  match ':action' => 'static#:action'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

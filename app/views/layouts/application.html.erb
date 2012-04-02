@@ -3,12 +3,40 @@
 <head>
   <title>TestApp</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag    "foundation", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "foundation" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
+	<div class="container">
+		<div class="row">
+			<div class="twelve columns">
+				<ul class="nav-bar">
+					<li>
+						<a href="root/welcome" class="main">Home</a>
+					</li>
+					<li>
+						<a href="products" class="main">Products</a>
+					</li>
+					<li>
+						<a href="#" class="main">About</a>
+					</li>
+					<li class="pull-right">
+						<% if user_signed_in? %>
+							<%= link_to 'Logout',
+								destroy_user_session_path,
+								method: :delete %>
+						<% end %>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div>
+			<%= yield %>
+		</div>
+	</div>
 
 </body>
 </html>
