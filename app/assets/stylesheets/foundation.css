@@ -56,9 +56,7 @@
 	ol, ul {
 		list-style: none;
 	}
-	blockquote, q {body
-		quotes: none;
-	}
+	
 	blockquote:before, blockquote:after,
 	q:before, q:after {
 		content: '';

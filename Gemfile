@@ -7,10 +7,11 @@ gem 'rails', '3.2.1'
 
 gem 'devise'
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
+gem 'execjs'
+gem 'therubyracer'
 
 group :production do
   gem 'pg'
-  gem 'therubyracer'
 end        
 
 group :development, :test do
