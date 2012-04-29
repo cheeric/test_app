@@ -13,6 +13,7 @@
           <td><%= link_to 'Add to Cart', add_to_cart_product_path(product[0]) %></td>
         </tr>
       </div>
+      <% if product[1] %>
       <div class="four columns">
         <tr>
           <td><%= product[1].name %></td><br />
@@ -24,6 +25,8 @@
           <td><%= link_to 'Add to Cart', add_to_cart_product_path(product[1]) %></td>
         </tr>
       </div>
+      <% end %>
+      <% if product[2] %>
       <div class="four columns">
         <tr>
           <td><%= product[2].name %></td><br />
@@ -35,6 +38,7 @@
           <td><%= link_to 'Add to Cart', add_to_cart_product_path(product[2]) %></td>
         </tr>
       </div>
+      <% end %>
     </div>
     <br />
     <br />
