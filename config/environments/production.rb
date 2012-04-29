@@ -66,4 +66,6 @@ TestApp::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
   config.action_mailer.default_url_options = { :host => 'cheeric.herokuapp.com' }
+
+  config.assets.initialize_on_precompile = false
 end
