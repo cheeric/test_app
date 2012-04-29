@@ -1,10 +1,4 @@
-class StaticController < ActionController::Base
+class StaticController < ApplicationController
   layout "application"
-
-  def welcome
-  end
-
-  def about
-  end
   
 end

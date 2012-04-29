@@ -14,30 +14,44 @@
 			<div class="twelve columns">
 				<ul class="nav-bar">
 					<li>
-						<a href="welcome" class="main">Home</a>
+						<%= link_to 'Home', root_path %>
 					</li>
 					<li>
-						<a href="products" class="main">Products</a>
+						<%= link_to 'Products', product_path %>
 					</li>
 					<li>
-						<a href="about" class="main">About</a>
+						<a href="/about">About</a>
 					</li>
 					<li>
-						<a href="#" class="main">Contact</a>
+						<a href="/contact">Contact</a>
 					</li>
 					<li class="pull-right">
 						<% if user_signed_in? %>
 							<%= link_to 'Logout',
 								destroy_user_session_path,
 								method: :delete %>
+						<% else %>
+							<%= link_to 'Login',
+								new_user_session_path %>
 						<% end %>
 					</li>
 				</ul>
 			</div>
 		</div>
 		
-		<div id="main-content">
-			<%= yield %>
+		<div id="main-content" class="row">
+			<% if user_signed_in? %>
+				<div class="row">
+					<div class="eight columns">
+						<%= yield %>
+					</div>
+					<div class="four columns">
+						<%= render 'cart' %>
+					</div>
+				</div>
+			<% else %>
+				<%= yield %>
+			<% end %>
 		</div>
 	</div>
 

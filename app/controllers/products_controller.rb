@@ -1,4 +1,13 @@
 class ProductsController < ApplicationController
+
+  def add_to_cart
+    @product = Product.find(params[:id])
+    order = Order.create(:cart_id => current_user.cart.id, :product_id => @product.id, :quantity => 1)
+    current_user.cart.orders.build params[order]
+    redirect_to products_path
+  end
+
+
   # GET /products
   # GET /products.json
   def index

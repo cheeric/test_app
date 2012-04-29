@@ -1,0 +1,21 @@
+<%= form_for(@cart, url: cart_path(current_user)) do |f| %>
+  <% if @cart.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cart.errors.count, "error") %> prohibited this cart from being saved:</h2>
+
+      <ul>
+      <% @cart.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %>
+    <%= f.collection_select :user_id, User.all, :id, :name, class: 'custom dropdown' %><br />
+  </div>
+  <div class="actions">
+    <%= f.submit class: 'nice small radius button' %>
+  </div>
+<% end %>
