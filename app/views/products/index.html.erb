@@ -8,8 +8,12 @@
           <td><%= product[0].description %></td><br />
           <td>$<%= product[0].price %></td><br />
           <td><%= link_to 'Show', product[0] %></td><br />
-          <td><%= link_to 'Edit', edit_product_path(product[0]) %></td><br />
-          <td><%= link_to 'Destroy', product[0], confirm: 'Are you sure?', method: :delete %></td><br />
+          <% if user_signed_in? %>
+            <% if is_admin? %>
+              <td><%= link_to 'Edit', edit_product_path(product[0]) %></td><br />
+              <td><%= link_to 'Destroy', product[0], confirm: 'Are you sure?', method: :delete %></td><br />
+            <% end %>
+          <% end %>
           <% if user_signed_in? %>
             <td><%= link_to 'Add to Cart', add_to_cart_product_path(product[0]) %></td>
           <% else %>
@@ -24,8 +28,12 @@
           <td><%= product[1].description %></td><br />
           <td>$<%= product[1].price %></td><br />
           <td><%= link_to 'Show', product[1] %></td><br />
-          <td><%= link_to 'Edit', edit_product_path(product[1]) %></td><br />
-          <td><%= link_to 'Destroy', product[1], confirm: 'Are you sure?', method: :delete %></td><br />
+          <% if user_signed_in? %>
+            <% if is_admin? %>
+              <td><%= link_to 'Edit', edit_product_path(product[1]) %></td><br />
+              <td><%= link_to 'Destroy', product[1], confirm: 'Are you sure?', method: :delete %></td><br />
+            <% end %>
+          <% end %>
           <% if user_signed_in? %>
             <td><%= link_to 'Add to Cart', add_to_cart_product_path(product[1]) %></td>
           <% else %>
@@ -41,8 +49,12 @@
           <td><%= product[2].description %></td><br />
           <td>$<%= product[2].price %></td><br />
           <td><%= link_to 'Show', product[2] %></td><br />
-          <td><%= link_to 'Edit', edit_product_path(product[2]) %></td><br />
-          <td><%= link_to 'Destroy', product[2], confirm: 'Are you sure?', method: :delete %></td><br />
+          <% if user_signed_in? %>
+            <% if is_admin? %>
+              <td><%= link_to 'Edit', edit_product_path(product[2]) %></td><br />
+              <td><%= link_to 'Destroy', product[2], confirm: 'Are you sure?', method: :delete %></td><br />
+            <% end %>
+          <% end %>
           <% if user_signed_in? %>
             <td><%= link_to 'Add to Cart', add_to_cart_product_path(product[2]) %></td>
           <% else %>

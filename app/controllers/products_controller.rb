@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
 
+  before_filter :redirect_if_nonadmin, :only => [:edit, :destroy]
+
   def add_to_cart
     @product = Product.find(params[:id])
     order = Order.create(:cart_id => current_user.cart.id, :product_id => @product.id, :quantity => 1)
@@ -87,6 +89,14 @@ class ProductsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to products_url }
       format.json { head :no_content }
+    end
+  end
+
+  protected
+
+  def redirect_if_nonadmin
+    if !is_admin?
+      redirect_to :root
     end
   end
 end

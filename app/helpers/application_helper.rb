@@ -4,4 +4,9 @@ module ApplicationHelper
       recent_household_purchases if
         current_user
   end
+
+  def is_admin?
+  	current_user.admin
+  end
+  
 end
