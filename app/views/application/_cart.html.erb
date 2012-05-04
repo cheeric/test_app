@@ -3,12 +3,15 @@
 	<% current_user.cart = Cart.create(:user_id => current_user.id) %>
 <% end %>
 
-<h3>Products</h3>
-	<table>
-		<% current_user.cart.orders.each do |order| %>
-			<tr>
-				<th><%= order.product.name %></th>
-				<th></th>
-			</tr>
-		<% end %>
-	</table>
+<% total = 0 %>
+<table>
+	<% current_user.cart.orders.each do |order| %>
+		<% total += order.product.price %>
+		<tr>
+			<td><%= order.product.name %></td>
+			<td><%= link_to 'Remove', remove_from_cart_order_path(order) %></td>
+		</tr>
+	<% end %>
+</table>
+
+<h4>Your total will be: $ <%= total %></h4>

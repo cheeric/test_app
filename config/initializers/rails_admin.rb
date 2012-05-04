@@ -9,6 +9,10 @@ RailsAdmin.config do |config|
 
   config.current_user_method { current_user } # auto-generated
 
+  config.authenticate_with do
+    redirect_to '/' unless current_user && warden.user.admin
+  end
+
   # If you want to track changes on your models:
   # config.audit_with :history, User
 

@@ -1,4 +1,12 @@
 class OrdersController < ApplicationController
+
+  def remove_from_cart
+    @order = Order.find(params[:id])
+    current_user.cart.orders.delete(@order)
+    #render :partial => 'application/cart'
+    redirect_to products_path
+  end
+
   # GET /orders
   # GET /orders.json
   def index

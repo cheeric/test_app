@@ -20,6 +20,12 @@ TestApp::Application.routes.draw do
     end
   end
 
+  resources :orders do
+    member do
+      get :remove_from_cart
+    end
+  end
+
   resources :carts
 
   root :to => 'static#welcome'

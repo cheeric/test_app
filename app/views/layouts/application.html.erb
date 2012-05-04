@@ -4,8 +4,6 @@
   <title>TestApp</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= stylesheet_link_tag    "foundation", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= javascript_include_tag "foundation" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -25,6 +23,13 @@
 					<li>
 						<a href="/contact">Contact</a>
 					</li>
+					<% if user_signed_in? %>
+					  <% if is_admin? %>
+					  	<li>
+					    	<%= link_to 'Admin', rails_admin_path %>
+						</li>
+					  <% end %>
+					<% end %>
 					<li class="pull-right">
 						<% if user_signed_in? %>
 							<%= link_to 'Logout',
@@ -35,6 +40,11 @@
 								new_user_session_path %>
 						<% end %>
 					</li>
+					<li id = "cart_button" class="pull-right" style="cursor: pointer;">
+						<% if user_signed_in? %>
+							<a>Cart</a>
+						<% end %>
+					</li>
 				</ul>
 			</div>
 		</div>
@@ -42,10 +52,10 @@
 		<div id="main-content" class="row">
 			<% if user_signed_in? %>
 				<div class="row">
-					<div class="eight columns">
+					<div id = "content" class="twelve columns">
 						<%= yield %>
 					</div>
-					<div class="four columns">
+					<div id ="cart" class="four columns" style="display: none;">
 						<%= render 'cart' %>
 					</div>
 				</div>
@@ -54,6 +64,7 @@
 			<% end %>
 		</div>
 	</div>
-
+	
+	<%= javascript_include_tag "application" %>
 </body>
 </html>

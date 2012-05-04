@@ -12,4 +12,24 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.effects.fade
 //= require_tree .
+
+
+
+$("#cart_button").click(function(){
+  
+  if ($("#cart").css("display") == "none") {
+  	$("#content").animate( {width: "65.2%"}, 300);
+  }
+  else {
+  	$("#content").animate( {width: "100%"}, 300);
+  };
+
+  if ($("#cart").css("display") == "none") {
+  	$("#cart").show(300);
+  }
+  else {
+  	$("#cart").hide();
+  };
+});
