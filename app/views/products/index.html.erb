@@ -1,72 +1,74 @@
-<h1>Listing Products</h1>
+<div class="container">
+  <h1>Listing Products</h1>
 
-  <% @products.each_slice(3) do |product| %>
-    <div class="row">
-      <div class="four columns">
-        <tr>
-          <td><%= product[0].name %></td><br />
-          <td><%= product[0].description %></td><br />
-          <td>$<%= product[0].price %></td><br />
-          <td><%= link_to 'Show', product[0] %></td><br />
-          <% if user_signed_in? %>
-            <% if is_admin? %>
-              <td><%= link_to 'Edit', edit_product_path(product[0]) %></td><br />
-              <td><%= link_to 'Destroy', product[0], confirm: 'Are you sure?', method: :delete %></td><br />
+    <% @products.each_slice(3) do |product| %>
+      <div class="row">
+        <div class="four columns">
+          <tr>
+            <td><h5><%= product[0].name %></h5></td><br />
+            <td><%= product[0].description %></td><br /><br />
+            <td>$<%= product[0].price %></td><br />
+            <td><%= link_to 'Show', product[0] %></td><br />
+            <% if user_signed_in? %>
+              <% if is_admin? %>
+                <td><%= link_to 'Edit', edit_product_path(product[0]) %></td><br />
+                <td><%= link_to 'Destroy', product[0], confirm: 'Are you sure?', method: :delete %></td><br />
+              <% end %>
             <% end %>
-          <% end %>
-          
-            <td><%= link_to 'Add to Cart', add_to_cart_product_path(product[0]), :update => 'application/cart' %></td>
-          
-        </tr>
-      </div>
-      <% if product[1] %>
-      <div class="four columns">
-        <tr>
-          <td><%= product[1].name %></td><br />
-          <td><%= product[1].description %></td><br />
-          <td>$<%= product[1].price %></td><br />
-          <td><%= link_to 'Show', product[1] %></td><br />
-          <% if user_signed_in? %>
-            <% if is_admin? %>
-              <td><%= link_to 'Edit', edit_product_path(product[1]) %></td><br />
-              <td><%= link_to 'Destroy', product[1], confirm: 'Are you sure?', method: :delete %></td><br />
+            
+              <td><%= link_to 'Add to Cart', add_to_cart_product_path(product[0]), :update => 'application/cart' %></td>
+            
+          </tr>
+        </div>
+        <% if product[1] %>
+        <div class="four columns">
+          <tr>
+            <td><h5><%= product[1].name %></h5></td><br />
+            <td><%= product[1].description %></td><br /><br />
+            <td>$<%= product[1].price %></td><br />
+            <td><%= link_to 'Show', product[1] %></td><br />
+            <% if user_signed_in? %>
+              <% if is_admin? %>
+                <td><%= link_to 'Edit', edit_product_path(product[1]) %></td><br />
+                <td><%= link_to 'Destroy', product[1], confirm: 'Are you sure?', method: :delete %></td><br />
+              <% end %>
             <% end %>
-          <% end %>
-          
-            <td><%= link_to 'Add to Cart', add_to_cart_product_path(product[1]) %></td>
-          
-        </tr>
-      </div>
-      <% end %>
-      <% if product[2] %>
-      <div class="four columns">
-        <tr>
-          <td><%= product[2].name %></td><br />
-          <td><%= product[2].description %></td><br />
-          <td>$<%= product[2].price %></td><br />
-          <td><%= link_to 'Show', product[2] %></td><br />
-          <% if user_signed_in? %>
-            <% if is_admin? %>
-              <td><%= link_to 'Edit', edit_product_path(product[2]) %></td><br />
-              <td><%= link_to 'Destroy', product[2], confirm: 'Are you sure?', method: :delete %></td><br />
+            
+              <td><%= link_to 'Add to Cart', add_to_cart_product_path(product[1]) %></td>
+            
+          </tr>
+        </div>
+        <% end %>
+        <% if product[2] %>
+        <div class="four columns">
+          <tr>
+            <td><h5><%= product[2].name %></h5></td><br />
+            <td><%= product[2].description %></td><br /><br />
+            <td>$<%= product[2].price %></td><br />
+            <td><%= link_to 'Show', product[2] %></td><br />
+            <% if user_signed_in? %>
+              <% if is_admin? %>
+                <td><%= link_to 'Edit', edit_product_path(product[2]) %></td><br />
+                <td><%= link_to 'Destroy', product[2], confirm: 'Are you sure?', method: :delete %></td><br />
+              <% end %>
             <% end %>
-          <% end %>
-          
-            <td><%= link_to 'Add to Cart', add_to_cart_product_path(product[2]) %></td>
-          
-        </tr>
+            
+              <td><%= link_to 'Add to Cart', add_to_cart_product_path(product[2]) %></td>
+            
+          </tr>
+        </div>
+        <% end %>
       </div>
-      <% end %>
-    </div>
-    <br />
-    <br />
+      <br />
+      <br />
+    <% end %>
+
+
+  <br />
+
+  <% if user_signed_in? %>
+    <% if is_admin? %>
+      <%= link_to 'New Product', new_product_path %>
+    <% end %>
   <% end %>
-
-
-<br />
-
-<% if user_signed_in? %>
-  <% if is_admin? %>
-    <%= link_to 'New Product', new_product_path %>
-  <% end %>
-<% end %>
+</div>

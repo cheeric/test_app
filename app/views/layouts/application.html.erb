@@ -7,49 +7,51 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div id="page" class="container">
-		<div id="header" class="row">
-			<div class="twelve columns">
-				<ul class="nav-bar">
-					<li>
-						<%= link_to 'Home', root_path %>
-					</li>
-					<li>
-						<%= link_to 'Products', product_path %>
-					</li>
-					<li>
-						<a href="/about">About</a>
-					</li>
-					<li>
-						<a href="/contact">Contact</a>
-					</li>
-					<% if user_signed_in? %>
-					  <% if is_admin? %>
-					  	<li>
-					    	<%= link_to 'Admin', rails_admin_path %>
+	<div id="page">
+		<div class="container">
+			<div id="header" class="row">
+				<div class="twelve columns">
+					<ul class="nav-bar">
+						<li>
+							<%= link_to 'Home', root_path %>
 						</li>
-					  <% end %>
-					<% end %>
-					<li class="pull-right">
+						<li>
+							<%= link_to 'Products', product_path %>
+						</li>
+						<li>
+							<a href="/about">About</a>
+						</li>
+						<li>
+							<a href="/contact">Contact</a>
+						</li>
 						<% if user_signed_in? %>
-							<%= link_to 'Logout',
-								destroy_user_session_path,
-								method: :delete %>
-						<% else %>
-							<%= link_to 'Login',
-								new_user_session_path %>
+						  <% if is_admin? %>
+						  	<li>
+						    	<%= link_to 'Admin', rails_admin_path %>
+							</li>
+						  <% end %>
 						<% end %>
-					</li>
-					<li id = "cart_button" class="pull-right" style="cursor: pointer;">
-						<% if user_signed_in? %>
-							<a>Cart</a>
-						<% end %>
-					</li>
-				</ul>
+						<li class="pull-right">
+							<% if user_signed_in? %>
+								<%= link_to 'Logout',
+									destroy_user_session_path,
+									method: :delete %>
+							<% else %>
+								<%= link_to 'Login',
+									new_user_session_path %>
+							<% end %>
+						</li>
+						<li id = "cart_button" class="pull-right" style="cursor: pointer;">
+							<% if user_signed_in? %>
+								<a>Cart</a>
+							<% end %>
+						</li>
+					</ul>
+				</div>
 			</div>
 		</div>
 		
-		<div id="main-content" class="row">
+		<div id="main-content" style="width: 100%">
 			<% if user_signed_in? %>
 				<div class="row">
 					<div id = "content" class="twelve columns">

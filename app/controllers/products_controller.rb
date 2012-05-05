@@ -4,6 +4,7 @@ class ProductsController < ApplicationController
   before_filter :authenticate_user!, :only => [:add_to_cart]
 
   def add_to_cart
+    render :nothing => true
     @product = Product.find(params[:id])
     order = Order.create(:cart_id => current_user.cart.id, :product_id => @product.id, :quantity => 1)
     current_user.cart.orders.build params[order]

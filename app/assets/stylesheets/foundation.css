@@ -530,7 +530,7 @@
    	Nav Bar with Dropdowns
 	-------------------------------------------------- */
 	
-	.nav-bar { height: 45px; background: #fff; margin-top: 0px; border-bottom: 3px solid #aaa; }	
+	.nav-bar { height: 45px; background: #fff; margin-top: 0px; border-bottom: 2px solid #aaa; }	
 	.nav-bar>li { float: left; display: block; position: relative; padding: 0; margin: 0; border-right: 0px solid #ddd; line-height: 40px; }
 	.nav-bar>li.pull-right { float: right; display: block; position: relative; padding: 0 0px; margin: 0; border-right: 0px solid #ddd; line-height: 40px; }
 	.nav-bar>li>a { position: relative; padding: 0 20px; display: block; text-decoration: none; font-size: 15px; font-size: 1.5rem; }
