@@ -96,7 +96,7 @@ class ProductsController < ApplicationController
   protected
 
   def redirect_if_nonadmin
-    if !is_admin?
+    if !current_user || !is_admin?
       redirect_to :root
     end
   end

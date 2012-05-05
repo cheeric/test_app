@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  before_filter :redirect_if_nonadmin, :only => [:index, :show, :new, :edit, :destroy]
+
   # GET /users
   # GET /users.json
   def index
@@ -79,6 +81,12 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to users_url }
       format.json { head :no_content }
+    end
+  end
+
+  def redirect_if_nonadmin
+    if !current_user || !is_admin?
+      redirect_to :root
     end
   end
 end
