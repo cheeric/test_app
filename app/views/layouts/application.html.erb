@@ -53,7 +53,7 @@
 		
 		<div id="main-content" style="width: 100%">
 			<% if user_signed_in? %>
-				<div class="row">
+				<div class="row" style="background-color:black">
 					<div id = "content" class="twelve columns">
 						<%= yield %>
 					</div>
@@ -62,7 +62,7 @@
 					</div>
 				</div>
 			<% else %>
-				<div class="row">
+				<div class="row" style="background-color:#111">
 					<%= yield %>
 				</div>
 			<% end %>
